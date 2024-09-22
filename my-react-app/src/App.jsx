@@ -82,28 +82,31 @@ function App() {
           />
         </div>
 
-        {/* File Input (Base64 encoded) */}
         <div>
           <label htmlFor="fileInput">Upload a file:</label>
           <input type="file" id="fileInput" onChange={handleFileChange} />
         </div>
 
-        {/* Submit Button */}
         <div>
           <button type="submit">Submit</button>
         </div>
 
-        {/* Error Message */}
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
 
       {/* Display Response */}
       {responseData && (
-        <div className="response">
-          <h2>Response</h2>
-          <pre>{JSON.stringify(responseData, null, 2)}</pre>
-        </div>
-      )}
+      <div className="response">
+        <h2>Response</h2>
+        <ul>
+          {Object.entries(responseData).map(([key, value]) => (
+            <li key={key}>
+              <strong>{key}</strong>: {Array.isArray(value) ? value.join(', ') : value.toString()}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
     </div>
   );
 }
