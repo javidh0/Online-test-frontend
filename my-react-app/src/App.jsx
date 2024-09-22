@@ -51,7 +51,7 @@ function App() {
 
     // Make API request
     try {
-      const response = await fetch('http://localhost:1729/bfhl', {
+      const response = await fetch('https://online-test-backend.vercel.app/bfhl', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
